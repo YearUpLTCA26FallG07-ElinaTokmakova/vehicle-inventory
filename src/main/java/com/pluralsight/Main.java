@@ -60,7 +60,6 @@ public class Main {
                 vehicles[i].display();
             }
         }
-        System.out.println(); //blank line
     }
 
     public static void searchMakeModel(Vehicle[] vehicles) {
