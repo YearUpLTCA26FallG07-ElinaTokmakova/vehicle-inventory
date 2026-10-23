@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         Vehicle[] vehicles = new Vehicle[20];
-        int counter = vehicles.length;
 
         //adding Vehicle objects to array
         vehicles[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
@@ -31,7 +29,7 @@ public class Main {
                 case 5 -> addVehicle(vehicles);
                 default -> System.out.println("Invalid command. Please enter an option between 1-6.");
             }
-            command = showMenu(scanner);;
+            command = showMenu(scanner);
         }
 
         System.out.println("Goodbye!");
@@ -55,9 +53,9 @@ public class Main {
 
     public static void listAll(Vehicle[] vehicles) {
         System.out.println(); //blank line
-        for (int i = 0; i < vehicles.length; i++) {
-            if (vehicles[i] != null) {
-                vehicles[i].display();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null) {
+                vehicle.display();
             }
         }
     }
@@ -67,10 +65,9 @@ public class Main {
         String target = scanner.nextLine();
 
         //scan left to right until target appears
-        for (int i = 0; i < vehicles.length; i++) {
-
-            if (vehicles[i] != null && vehicles[i].getMakeModel().toLowerCase().contains((target.toLowerCase()))) {
-                vehicles[i].display();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null && vehicle.getMakeModel().toLowerCase().contains(target)) {
+                vehicle.display();
             }
         }
     }
@@ -80,10 +77,9 @@ public class Main {
         double target = scanner.nextDouble();
 
         //scan left to right until target appears
-        for (int i = 0; i < vehicles.length; i++) {
-
-            if (vehicles[i] != null && vehicles[i].getPrice() == target) {
-                vehicles[i].display();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null && vehicle.getPrice() == target) {
+                vehicle.display();
             }
         }
     }
@@ -93,10 +89,9 @@ public class Main {
         String target = scanner.nextLine();
 
         //scan left to right until target appears
-        for (int i = 0; i < vehicles.length; i++) {
-
-            if (vehicles[i] != null && vehicles[i].getColor().toLowerCase().contains((target.toLowerCase()))) {
-                vehicles[i].display();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null && vehicle.getColor().toLowerCase().contains(target)) {
+                vehicle.display();
             }
         }
     }
